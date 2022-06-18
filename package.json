@@ -8,5 +8,19 @@
     "start": "node server.js"
   },
   "author": "Eduardo Odriozola",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrus3000/npm-randomRGB.git"
+  },
+  "keywords": [
+    "rgb",
+    "rgb random",
+    "color",
+    "generate"
+  ],
+  "bugs": {
+    "url": "https://github.com/garrus3000/npm-randomRGB/issues"
+  },
+  "homepage": "https://github.com/garrus3000/npm-randomRGB#readme"
 }
