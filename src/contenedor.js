@@ -1,9 +1,9 @@
 class Contenedor {
     constructor(cantidad) {
         this.cantidad = cantidad;
-        if (this.cantidad <= 0 || this.cantidad > 6) {
-            throw new Error("La cantidad debe ser mayor a 0 y menor a 6");
-        } else this.cantidad = cantidad;
+        this.incorrecto = cantidad <= 0 || cantidad > 6 || isNaN(cantidad);
+        if (this.incorrecto) this.incorrecto;
+        else cantidad;
     }
 
     generateRGBValue() {
@@ -12,6 +12,12 @@ class Contenedor {
     }
 
     getRGB() {
+        if (this.incorrecto) {
+            console.log(`\n El valor de la cantidad debe ser mayor a 0 y menor a 6
+            \n Cantidad ingresada: ${this.cantidad}
+            \n No se puede generar un RGB`);
+            return "";
+        }
         const arr = [];
         for (let i = 0; i < this.cantidad; i++) {
             const rgb = `rgb(${this.generateRGBValue()}, ${this.generateRGBValue()}, ${this.generateRGBValue()})`;
@@ -22,7 +28,8 @@ class Contenedor {
             };
             arr.push(objeto);
         }
-        return arr;
+        // return arr;
+        return arr.map((obj) => `\n ${obj.id}. ${obj.rgb}`).join("\n");
     }
 }
 
