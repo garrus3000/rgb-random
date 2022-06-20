@@ -1,9 +1,9 @@
-const chalk = require('chalk');
-const Chalk = require('chalk');
+const chalk = require("chalk");
 
 class Contenedor {
     constructor(cantidad) {
         this.cantidad = cantidad;
+        this.HellsKitchen = cantidad === "HellsKitchen";
         this.incorrecto = cantidad <= 0 || cantidad > 6 || isNaN(cantidad);
         if (this.incorrecto) this.incorrecto;
         else cantidad;
@@ -15,17 +15,38 @@ class Contenedor {
     }
 
     getRGB() {
+        if (this.HellsKitchen) {
+            const HellsKitchen = `
+
+            ⠁⡼⠋⠀⣆⠀⠀⣰⣿⣫⣾⢿⣿⣿⠍⢠⠠⠀⠀⢀⠰⢾⣺⣻⣿⣿⣿⣷⡀⠀
+            ⣥⠀⠀⠀⠁⠀⠠⢻⢬⠁⣠⣾⠛⠁⠀⠀⠀⠀⠀⠀⠀⠐⠱⠏⡉⠙⣿⣿⡇⠀
+            ⢳⠀⢰⡖⠀⠀⠈⠀⣺⢰⣿⢻⣾⣶⣿⣿⣶⣶⣤⣤⣴⣾⣿⣷⣼⡆⢸⣿⣧⠀
+            ⠈⠀⠜⠈⣀⣔⣦⢨⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣅⣼⠛⢹⠀
+            ⠀⠀⠀⠀⢋⡿⡿⣯⣭⡟⣟⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⡘⠀
+            ⡀⠐⠀⠀⠀⣿⣯⡿⣿⣿⣿⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⣉⢽⣿⡆⠀⠀
+            ⢳⠀⠄⠀⢀⣿⣿⣿⣿⣿⣿⣿⠙⠉⠉⠉⠛⣻⢛⣿⠛⠃⠀⠐⠛⠻⣿⡇⠀⠀
+            ⣾⠄⠀⠀⢸⣿⣿⡿⠟⠛⠁⢀⠀⢀⡄⣀⣠⣾⣿⣿⡠⣴⣎⣀⣠⣠⣿⡇⠀⠀
+            ⣧⠀⣴⣄⣽⣿⣿⣿⣶⣶⣖⣶⣬⣾⣿⣾⣿⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⡇⠀⠀
+            ⣿⣶⣈⡯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⣹⢧⣿⣿⣿⣄⠙⢿⣿⣿⣿⠇⠀⠀
+            ⠹⣿⣿⣧⢌⢽⣻⢿⣯⣿⣿⣿⣿⠟⣠⡘⠿⠟⠛⠛⠟⠛⣧⡈⠻⣾⣿⠀⠀⠀
+            ⠀⠈⠉⣷⡿⣽⠶⡾⢿⣿⣿⣿⢃⣤⣿⣷⣤⣤⣄⣄⣠⣼⡿⢷⢀⣿⡏⠀⠀⠀
+            ⠀⠀⢀⣿⣷⠌⣈⣏⣝⠽⡿⣷⣾⣏⣀⣉⣉⣀⣀⣀⣠⣠⣄⡸⣾⣿⠃⠀⠀⠀
+            ⠀⣰⡿⣿⣧⡐⠄⠱⣿⣺⣽⢟⣿⣿⢿⣿⣍⠉⢀⣀⣐⣼⣯⡗⠟⡏⠀⠀⠀⠀
+            ⣰⣿⠀⣿⣿⣴⡀⠂⠘⢹⣭⡂⡚⠿⢿⣿⣿⣿⡿⢿⢿⡿⠿⢁⣴⣿⣷⣶⣦⣤⣀
+            `;
+            return HellsKitchen;
+        }
         if (this.incorrecto) {
             console.log(`\n
- El valor de ${Chalk.bgBlue(" cantidad ")} debe ser un ${chalk.bgGreen(
+ El valor de ${chalk.bgBlue(" cantidad ")} debe ser un ${chalk.bgGreen(
                 " Número "
             )} mayor a ${chalk.underline.green(
                 "0"
             )} y menor a ${chalk.underline.green("6")}
-            \n Cantidad ingresada: ${Chalk.red(this.cantidad)}
-            \n Error al generar un: ${chalk.bgYellowBright(
-                " " + Chalk.bgAnsi256(this.generateRGBValue())(" RGB ") + " "
-            )}`);
+            \n Cantidad ingresada: ${chalk.red(this.cantidad)}
+            \n Error al generar un: ${
+                chalk.bgRed(" R ") + chalk.bgGreen(" G ") + chalk.bgBlue(" B ")
+            } `);
             return "";
         }
         const arr = [];
@@ -41,11 +62,9 @@ class Contenedor {
                 g,
                 b,
             };
-            // const chalked = Chalk.rgb(r, g, b)(`\n RGB ${id}: rgb(${_rgb})`);
             const chalked =
-                Chalk.bgRgb(r, g, b)(`\n RGB ${id} `) +
-                Chalk.rgb(r, g, b)(` rgb(${_rgb})`);
-
+                chalk.bgRgb(r, g, b)(`\n RGB ${id} `) +
+                chalk.rgb(r, g, b)(` rgb(${_rgb})`);
             arr.push(objeto);
             console.log(chalked);
         }
