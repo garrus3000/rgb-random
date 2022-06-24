@@ -1,6 +1,6 @@
 {
   "name": "rgb-random",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Generate RGB colors",
   "main": "index.js",
   "bin": {
@@ -19,7 +19,9 @@
     "rgb",
     "rgb random",
     "color",
-    "generate color"
+    "generate color",
+    "rgb generator",
+    "color generator"
   ],
   "dependencies": {
     "chalk": "^4.1.2"

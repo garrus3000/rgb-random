@@ -1,3 +1,4 @@
+<body>
 # rgb-random
 A simple npm proyect, that gives you a series of random colors in  <span style="background-color:#fcfcfc;"><font color="red" bgcolor="#def28d">⠀R </font><font color="green"> G </font><font color="blue"> B⠀</font></span> format.
 <br><br>
@@ -8,12 +9,12 @@ npm i rgb-random
 ```
 
 # Usage
-Un your <font color="skyBlue">*Command Line Interface*</font> aka __CLI__
+In your <font color="skyBlue">*Command Line Interface*</font> aka __CLI__
 
 Type:  `npm start` **`'Number'`**
 
 
-Where **`Number`** is a **<font color="green">Number</font>** from **<font color="green">0</font>** to **<font color="green">6</font>**, and press Enter
+Where **`Number`** is a **<font color="green">Number</font>** from **<font color="green">1</font>** to **<font color="green">6</font>**, and press Enter
 
 <br>
 Example:
@@ -52,8 +53,4 @@ Result:
 </h1>
 
 <br>
-
-
-
-
-
+</body>
